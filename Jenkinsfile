@@ -3,7 +3,7 @@ pipeline {
 		label "jenkins-agent"
 	}
 	environment {
-		APP_NAME = "complete-production-e2e-pipeline"
+		APP_NAME = "cicd-production-pipeline"
 	}
 	stages {
 		stage("Cleanup workspace") {
@@ -36,7 +36,7 @@ pipeline {
 					git add deployment.yaml
 					git commit -m "updated deployment manifest with new image tag"
 				"""
-				withCredentials([gitUsernamePassword(credentialId: 'github', gitToolName: 'Default')]) {
+				withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
 					sh "git push https://github.com/d611862/gitops-e2e-deplyment main"
 				}
 			}
