@@ -5,7 +5,6 @@ pipeline {
 	environment {
 		APP_NAME = "complete-production-e2e-pipeline"
 	}
-
 	stages {
 		stage("Cleanup workspace") {
 			steps {
@@ -39,6 +38,7 @@ pipeline {
 				"""
 				withCredentials([gitUsernamePassword(credentialId: 'github', gitToolName: 'Default')]) {
 					sh "git push https://github.com/d611862/gitops-e2e-deplyment main"
+				}
 			}
 		}
 	}
