@@ -14,7 +14,7 @@ pipeline {
 
 		stage("Checkout form SCM") {
 			steps {
-				git branch: 'main', credentialId: 'github', url: 'https://github.com/d611862/gitops-e2e-deployment'
+				git branch: 'main', credentialsId: 'github', url: 'https://github.com/d611862/gitops-e2e-deployment'
 			}
 		}
 
