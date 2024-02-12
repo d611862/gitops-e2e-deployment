@@ -37,7 +37,7 @@ pipeline {
 					git commit -m "updated deployment manifest with new image tag"
 				"""
 				withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-					sh "git push https://github.com/d611862/gitops-e2e-deplyment main"
+					sh "git push https://github.com/d611862/gitops-e2e-deployment main"
 				}
 			}
 		}
